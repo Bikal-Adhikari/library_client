@@ -35,7 +35,7 @@ const Reviews = () => {
     <UserLayout pageTitle="All Reviews List">
       <div>
         <div className="d-flex justify-content-between mb-4">
-          <div>30 Reviews found!</div>
+          <div>{allReviews.length} Reviews found!</div>
         </div>
         <hr />
         <Table striped bordered hover>
