@@ -1,36 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { DefaultLayout } from "../../components/layout/DefaultLayout";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { CustomInput } from "../../components/customInpute/CustomInput";
 
 import { toast } from "react-toastify";
 import { postNewUser } from "../../features/users/userAxios";
-
+import "./signIn-signup.css";
 const SignUp = () => {
   const [form, setForm] = useState({});
   const [error, setError] = useState("");
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
-    // setError("");
-    // if (name === "confirmPassword") {
-    //   form.password !== value && setError("Password must match");
-
-    //   form.password.length < 6 && setError("Password must be 6 charcter long");
-
-    //   !/[!@#$%^&*()]/.test(form.password) &&
-    //     setError("Must include at least on of !@#$%^&*() ");
-
-    //   !/[a-z]/.test(form.password) &&
-    //     setError("Must have atleast 1 lower case");
-    //   !/[A-Z]/.test(form.password) &&
-    //     setError("Must have atleast 1 upper case");
-    //   !/[0-9]/.test(form.password) && setError("Must have atleast 1 number");
-    // }
-
-    // if (name === "password" && form.confirmPassword) {
-    //   form.confirmPassword !== value && setError("Password do not match");
-    // }
 
     setForm({
       ...form,
@@ -61,14 +42,14 @@ const SignUp = () => {
       name: "fName",
       type: "text",
       required: true,
-      placeholder: "Sam",
+      placeholder: "Write your first name",
     },
     {
       label: "Last Name",
       name: "lName",
       type: "text",
       required: true,
-      placeholder: "Rogan",
+      placeholder: "Write your Last name",
     },
     {
       label: "Phone",
@@ -82,7 +63,7 @@ const SignUp = () => {
       name: "email",
       type: "email",
       required: true,
-      placeholder: "Sam@email.com",
+      placeholder: "email@email.com",
     },
     {
       label: "Password",
@@ -101,15 +82,15 @@ const SignUp = () => {
   ];
 
   return (
-    <DefaultLayout>
+    <DefaultLayout className="sign-up-background">
       <Row>
         <Col>
           <Form
             onSubmit={handleOnSubmit}
-            className="shadow-lg border p-5 rounded  m-auto mt-4"
+            className="shadow-lg border p-5 rounded  m-auto mt-4 form-blur"
             style={{ width: "450px" }}
           >
-            <h1>Join the library community!</h1>
+            <h1>Join our library community!</h1>
             <hr />
             {inputs.map((input, i) => (
               <CustomInput key={i} {...input} onChange={handleOnChange} />
