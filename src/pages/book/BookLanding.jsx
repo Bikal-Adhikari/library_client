@@ -1,8 +1,7 @@
-import React from "react";
 import { DefaultLayout } from "../../components/layout/DefaultLayout";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Col, Nav, Row, Spinner, Tab, Tabs } from "react-bootstrap";
+import { Button, Col, Row, Spinner, Tab, Tabs } from "react-bootstrap";
 import { ReviewBlock } from "../../components/customCard/ReviewBlock";
 import { Stars } from "../../components/stars/Stars";
 import { addNewBurrowAction } from "../../features/burrows/burrowAction";
@@ -102,7 +101,7 @@ const BookLanding = () => {
             </Tab>
 
             <Tab eventKey="reviews" title="Reviews">
-              <ReviewBlock pubReviews={pubReviews} />
+              <ReviewBlock bookReviews={bookReviews} />
             </Tab>
           </Tabs>
 

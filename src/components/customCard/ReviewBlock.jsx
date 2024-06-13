@@ -1,9 +1,9 @@
 import { Stars } from "../stars/Stars";
 
-export const ReviewBlock = ({ pubReviews }) => {
+export const ReviewBlock = ({ bookReviews }) => {
   return (
     <div>
-      {pubReviews?.map(
+      {bookReviews?.map(
         ({ _id, userName, ratings, tilte, message, createdAt }) => (
           <div key={_id} className="mb-4 shadow-lg p-2">
             <div className="d-flex gap-2 align-items-baseline mb-2">
