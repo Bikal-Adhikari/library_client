@@ -42,7 +42,7 @@ const SignIn = () => {
       name: "email",
       type: "email",
       required: true,
-      placeholder: "Sam@email.com",
+      placeholder: "email@email.com",
       inputRef: emailRef,
     },
     {
