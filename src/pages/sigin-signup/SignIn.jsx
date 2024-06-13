@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { userSignInAction } from "../../features/users/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
+import "./signIn-signup.css";
 
 const SignIn = () => {
   const location = useLocation();
@@ -54,14 +55,13 @@ const SignIn = () => {
     },
   ];
 
-  console.log("Is not rendering");
   return (
-    <DefaultLayout>
+    <DefaultLayout className="sign-in-background">
       <Row>
         <Col>
           <Form
             onSubmit={handleOnSubmit}
-            className="shadow-lg border p-5 rounded  m-auto mt-4"
+            className="shadow-lg border p-5 rounded  m-auto mt-4 form-blur"
             style={{ width: "450px" }}
           >
             <h1>Welcome back!</h1>
@@ -73,6 +73,9 @@ const SignIn = () => {
             <div className="d-grid">
               <Button type="submit">Submit</Button>
             </div>
+            <p className="pt-3">For test sign in:</p>
+            <p>email : a@a.com</p>
+            <p>password : as</p>
           </Form>
         </Col>
       </Row>

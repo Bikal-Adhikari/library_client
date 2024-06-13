@@ -1,0 +1,17 @@
+.sign-in-background {
+  background-image: url("/src/assets/Login.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-blur {
+  background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+  backdrop-filter: blur(1px); /* Blur effect */
+  -webkit-backdrop-filter: blur(1px); /* Safari support */
+  padding: 20px;
+  border-radius: 10px;
+}
