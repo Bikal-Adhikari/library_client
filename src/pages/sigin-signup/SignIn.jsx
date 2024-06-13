@@ -3,8 +3,8 @@ import { DefaultLayout } from "../../components/layout/DefaultLayout";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { CustomInput } from "../../components/customInpute/CustomInput";
 import { toast } from "react-toastify";
-import { loginUser } from "../../features/users/userAxios";
-import { getUserObj, userSignInAction } from "../../features/users/userAction";
+
+import { userSignInAction } from "../../features/users/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -16,7 +16,6 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const { user } = useSelector((state) => state.userInfo);
-  console.log(location);
 
   const sendTo = location?.state?.from?.location?.pathname || "/dashboard";
 
