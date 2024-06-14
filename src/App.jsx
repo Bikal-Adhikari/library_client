@@ -5,9 +5,9 @@ import { ToastContainer } from "react-toastify";
 import Home from "./pages/home/Home";
 import SignIn from "./pages/sigin-signup/SignIn";
 import SignUp from "./pages/sigin-signup/SignUp";
-import Product from "./pages/book/BookLanding";
+
 import Dashobard from "./pages/dashboard/Dashobard";
-import { AuthRoute } from "./components/auth/AuthRoute";
+
 import BookList from "./pages/book/BookList";
 import EditBook from "./pages/book/EditBook";
 import AddNewBook from "./pages/book/AddNewBook";
@@ -22,6 +22,7 @@ import BookLanding from "./pages/book/BookLanding";
 import { autoLogin } from "./features/users/userAction";
 import Reviews from "./pages/reviews/Reviews";
 import { getReviews } from "./features/reviews/reviewAction";
+import EditProfile from "./pages/user/EditProfile";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ function App() {
         <Route path="dashboard" element={<Dashobard />} />
         <Route path="my-books" element={<MyBurrow />} />
         <Route path="profile" element={<UserProfile />} />
+        <Route path="profile/edit/:_id" element={<EditProfile />} />
       </Routes>
       <ToastContainer />
     </div>

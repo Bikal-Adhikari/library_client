@@ -12,6 +12,7 @@ import {
 } from "mdb-react-ui-kit";
 import { useEffect } from "react";
 import { getUserObj } from "../../features/users/userAction";
+import { Link } from "react-router-dom";
 const UserProfile = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userInfo);
@@ -36,9 +37,10 @@ const UserProfile = () => {
                     fluid
                   />
                   <p className="text-muted mb-1">{`${fName} ${lName}`}</p>
-
                   <div className="d-flex justify-content-center mb-2">
-                    <MDBBtn>Update Profile</MDBBtn>
+                    <Link to="/admin/books/new">
+                      <MDBBtn>Update Profile</MDBBtn>
+                    </Link>
                   </div>
                 </MDBCardBody>
               </MDBCard>
