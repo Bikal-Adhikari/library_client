@@ -8,26 +8,34 @@ export const CustomCarousel = () => {
     <Carousel data-bs-theme="dark">
       <Carousel.Item>
         <img className="d-block w-100" src={a} alt="First slide" />
-        <Carousel.Caption className="bg-dark p-2 rounded text-light opacity-2">
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <Carousel.Caption className="bg-dark p-2 rounded text-light">
+          <h5>Easy Book Search</h5>
+          <p>
+            Find your desired books quickly with our powerful search engine.
+            Browse by title, author, genre, or ISBN and get instant results.
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item>
         <img className="d-block w-100" src={b} alt="Second slide" />
-        <Carousel.Caption className="text-light">
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <Carousel.Caption className="bg-dark p-2 rounded text-light">
+          <h5>Effortless Borrowing</h5>
+          <p>
+            Streamline the borrowing process with our user-friendly interface.
+            Reserve, renew, and return books with just a few clicks.
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item>
         <img className="d-block w-100" src={c} alt="Third slide" />
-        <Carousel.Caption className="text-light">
-          <h5>Third slide label</h5>
+        <Carousel.Caption className="bg-dark p-2 rounded text-light">
+          <h5>Personalized Recommendations</h5>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Discover new favorites with personalized book recommendations based
+            on your reading history and preferences. Never run out of great
+            reads!
           </p>
         </Carousel.Caption>
       </Carousel.Item>
