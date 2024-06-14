@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from "react-redux";
 import { UserLayout } from "../../components/layout/UserLayout";
 import {
   MDBCol,
@@ -9,7 +10,16 @@ import {
   MDBCardImage,
   MDBBtn,
 } from "mdb-react-ui-kit";
+import { useEffect } from "react";
+import { getUserObj } from "../../features/users/userAction";
 const UserProfile = () => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.userInfo);
+  useEffect(() => {
+    dispatch(getUserObj());
+  }, [dispatch]);
+
+  const { _id, role, fName, lName, phone, email, ...rest } = user;
   return (
     <UserLayout pageTitle={"User Profile"}>
       <section style={{ backgroundColor: "#eee" }}>
@@ -25,8 +35,8 @@ const UserProfile = () => {
                     style={{ width: "150px" }}
                     fluid
                   />
-                  <p className="text-muted mb-1">Full Stack Developer</p>
-                  <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                  <p className="text-muted mb-1">{`${fName} ${lName}`}</p>
+
                   <div className="d-flex justify-content-center mb-2">
                     <MDBBtn>Update Profile</MDBBtn>
                   </div>
@@ -42,7 +52,7 @@ const UserProfile = () => {
                     </MDBCol>
                     <MDBCol sm="9">
                       <MDBCardText className="text-muted">
-                        Johnatan Smith
+                        {`${fName} ${lName}`}
                       </MDBCardText>
                     </MDBCol>
                   </MDBRow>
@@ -52,20 +62,16 @@ const UserProfile = () => {
                       <MDBCardText>Email</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
-                      <MDBCardText className="text-muted">
-                        example@example.com
-                      </MDBCardText>
+                      <MDBCardText className="text-muted">{email}</MDBCardText>
                     </MDBCol>
                   </MDBRow>
                   <hr />
                   <MDBRow>
                     <MDBCol sm="3">
-                      <MDBCardText>Phone</MDBCardText>
+                      <MDBCardText>Role</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
-                      <MDBCardText className="text-muted">
-                        (097) 234-5678
-                      </MDBCardText>
+                      <MDBCardText className="text-muted">{role}</MDBCardText>
                     </MDBCol>
                   </MDBRow>
                   <hr />
@@ -74,9 +80,7 @@ const UserProfile = () => {
                       <MDBCardText>Mobile</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
-                      <MDBCardText className="text-muted">
-                        (098) 765-4321
-                      </MDBCardText>
+                      <MDBCardText className="text-muted">{phone}</MDBCardText>
                     </MDBCol>
                   </MDBRow>
                 </MDBCardBody>
