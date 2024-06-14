@@ -38,7 +38,7 @@ const UserProfile = () => {
                   />
                   <p className="text-muted mb-1">{`${fName} ${lName}`}</p>
                   <div className="d-flex justify-content-center mb-2">
-                    <Link to="/admin/books/new">
+                    <Link to={"edit/" + _id}>
                       <MDBBtn>Update Profile</MDBBtn>
                     </Link>
                   </div>

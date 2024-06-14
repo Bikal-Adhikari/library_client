@@ -55,7 +55,7 @@ function App() {
         <Route path="dashboard" element={<Dashobard />} />
         <Route path="my-books" element={<MyBurrow />} />
         <Route path="profile" element={<UserProfile />} />
-        <Route path="profile/edit/:_id" element={<EditProfile />} />
+        <Route path="edit/:_id" element={<EditProfile />} />
       </Routes>
       <ToastContainer />
     </div>
