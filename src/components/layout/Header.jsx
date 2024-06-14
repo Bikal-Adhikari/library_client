@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import { setUser } from "../../features/users/userSlice";
+import "./layout.css";
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export const Header = () => {
     // sign out from server
   };
   return (
-    <Navbar expand="md" variant="dark" className="bg-dark">
+    <Navbar expand="md" variant="dark" className="bg-dark bg-gradient-danger">
       <Container>
         <Link to="/" className="navbar-brand">
           LibraryManagement
