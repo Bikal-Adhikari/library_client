@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Button, Table } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
 
 import { useDispatch } from "react-redux";
 
-import { returnBurrowAction } from "../../features/burrows/burrowAction";
-import { ReviewForm } from "../forms/ReviewForm";
-import { CustomModal } from "../customModal/CustomModal";
-
-export const MyBurrowTable = ({ burrows = [] }) => {
+export const AllBurrowTable = ({ burrows = [] }) => {
   const dispatch = useDispatch();
   const [burrow, setBurrow] = useState({});
 
@@ -15,7 +11,7 @@ export const MyBurrowTable = ({ burrows = [] }) => {
   return (
     <div>
       <div className="d-flex justify-content-between mb-4">
-        <div>30 Burrowed history found!</div>
+        <div>{burrows?.length} Burrowed history found!</div>
       </div>
       <hr />
       <Table striped bordered hover>
@@ -26,7 +22,7 @@ export const MyBurrowTable = ({ burrows = [] }) => {
             <th>Name</th>
             <th>Due Date</th>
             <th>Returned Date</th>
-            <th>Action</th>
+            <th>Burrowed By</th>
           </tr>
         </thead>
         <tbody>
@@ -42,30 +38,7 @@ export const MyBurrowTable = ({ burrows = [] }) => {
               <td>{item?.dueDate?.slice(0, 10)}</td>
               <td>{item?.returnedDate?.slice(0, 10) || "-"}</td>
 
-              <td>
-                {item?.isReturned ? (
-                  <Button onClick={() => setBurrow(item)} variant="warning">
-                    Give Reviews
-                  </Button>
-                ) : (
-                  <Button
-                    variant="success"
-                    onClick={() =>
-                      window.confirm(
-                        "Are you sure you want to reaturn this book?"
-                      ) &&
-                      dispatch(
-                        returnBurrowAction({
-                          _id: item._id,
-                          bookId: item.bookId,
-                        })
-                      )
-                    }
-                  >
-                    Return Book
-                  </Button>
-                )}
-              </td>
+              <td>{item.userName}</td>
             </tr>
           ))}
         </tbody>
