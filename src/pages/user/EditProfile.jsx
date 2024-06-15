@@ -47,6 +47,7 @@ const EditProfile = () => {
       type: "email",
       required: true,
       placeholder: "email@email.com",
+      value: form.email,
     },
   ];
 
