@@ -22,3 +22,33 @@ Vite: A fast build tool and development server.
 React: A JavaScript library for building user interfaces.
 Axios: A promise-based HTTP client for making requests to the backend.
 Redux: A state management library for managing application state.
+
+### Installation
+
+To get started with the project, follow these steps:
+
+## Clone the repository:
+
+## bash
+
+Copy code
+git clone https://github.com/yourusername/library-management-system.git
+cd library-management-system
+Install dependencies:
+
+## bash
+
+Copy code
+npm install
+Start the development server:
+
+## bash
+
+Copy code
+npm run dev
+Build for production:
+
+## bash
+
+Copy code
+npm run build
