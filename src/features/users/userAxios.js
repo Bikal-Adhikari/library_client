@@ -29,3 +29,11 @@ export const fetchUserInfo = () => {
   };
   return apiProcesser(axiosObj);
 };
+export const EditUserInfo = async (obj) => {
+  const axiosObj = {
+    method: "put",
+    url: userEP,
+    data: obj,
+  };
+  return apiProcesser(axiosObj);
+};
