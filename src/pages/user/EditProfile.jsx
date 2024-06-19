@@ -74,7 +74,7 @@ const EditProfile = () => {
         <Form onSubmit={handleOnSubmit}>
           {inputs?.map((input, i) => (
             <CustomInput
-              disabled={input.name === "isbn"}
+              disabled={input.name === "email"}
               key={i}
               {...input}
               onChange={handleOnChange}
