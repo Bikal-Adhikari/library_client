@@ -7,7 +7,7 @@ import {
 } from "./bookAxios";
 import { setBooks, setSelectedBook } from "./bookSlice";
 
-export const postNewBookAction = (obj) => async (disptch) => {
+export const postNewBookAction = (obj) => async (dispatch) => {
   // call axios to send data
 
   const pending = postNewBook(obj);
