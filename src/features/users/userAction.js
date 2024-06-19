@@ -44,7 +44,7 @@ export const autoLogin = () => async (dispatch) => {
   }
 };
 
-export const EditUserProfileAction = (obj) => async (dispatch) => {
+export const editUserProfileAction = (obj) => async (dispatch) => {
   const pending = EditUserInfo(obj);
   toast.promise(pending, {
     pending: "Please wait...",
