@@ -26,7 +26,7 @@ const EditProfile = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    const { __v, createdAt, updatedAt, role, ...rest } = form;
+    const { __v, createdAt, updatedAt, role, email, ...rest } = form;
 
     if (window.confirm("Are you sure you want to make this changes?")) {
       dispatch(editUserProfileAction(rest));
