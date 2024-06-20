@@ -26,7 +26,6 @@ export const fetchUserInfo = () => {
     method: "get",
     url: userEP,
     isPrivate: true,
-    role: "admin",
   };
   return apiProcesser(axiosObj);
 };
@@ -35,6 +34,7 @@ export const fetchAllUserInfo = () => {
     method: "get",
     url: userEP,
     isPrivate: true,
+    role: "admin",
   };
   return apiProcesser(axiosObj);
 };

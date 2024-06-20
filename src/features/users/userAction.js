@@ -1,4 +1,4 @@
-import { setUser } from "./userSlice";
+import { setStudent, setUser } from "./userSlice";
 import {
   EditUserInfo,
   fetchAllUserInfo,
@@ -15,10 +15,16 @@ export const getUserObj = () => async (dispatch) => {
   dispatch(setUser(user));
 };
 export const getAllStudentAction = (isPrivate, role) => async (dispatch) => {
-  const { status, students } = await fetchAllUserInfo(isPrivate, role);
+  const pending = fetchAllUserInfo(isPrivate, role);
+  toast.promise(pending, {
+    pending: "Please wait...",
+  });
+
+  const { status, message, students } = await pending;
+  toast[status](message);
 
   //update store
-  dispatch(setUser(user));
+  dispatch(setStudent(students));
 };
 
 export const userSignInAction = (obj) => async (dispatch) => {
