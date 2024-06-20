@@ -13,7 +13,7 @@ const userSlice = createSlice({
       state.user = action.payload;
     },
     setStudent: (state, action) => {
-      state.student = action.payload;
+      state.student = action.payload || [];
     },
   },
 });

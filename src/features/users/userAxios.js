@@ -34,7 +34,6 @@ export const fetchAllUserInfo = () => {
     method: "get",
     url: userEP + "/students",
     isPrivate: true,
-    role: "admin",
   };
   return apiProcesser(axiosObj);
 };

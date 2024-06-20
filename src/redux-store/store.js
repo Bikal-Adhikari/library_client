@@ -3,7 +3,6 @@ import userReducer from "../features/users/userSlice";
 import bookReducer from "../features/books/bookSlice";
 import burrowReducer from "../features/burrows/burrowSlice";
 import reviewReducer from "../features/reviews/reviewSlice";
-import studentReducer from "../features/users/userSlice";
 
 export default configureStore({
   reducer: {
@@ -11,6 +10,5 @@ export default configureStore({
     bookInfo: bookReducer,
     burrowInfo: burrowReducer,
     reviewInfo: reviewReducer,
-    studentInfo: studentReducer,
   },
 });

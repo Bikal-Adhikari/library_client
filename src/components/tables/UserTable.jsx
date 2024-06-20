@@ -7,10 +7,9 @@ import { getAllStudentAction } from "../../features/users/userAction";
 const isPrivate = true;
 export const UserTable = () => {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.userInfo);
-  const { role, ...rest } = user;
+  const { user, student } = useSelector((state) => state.userInfo);
 
-  const { students } = useSelector((state) => state.studentInfo);
+  const { role, ...rest } = user;
 
   useEffect(() => {
     dispatch(getAllStudentAction(isPrivate, role));
@@ -18,7 +17,7 @@ export const UserTable = () => {
   return (
     <div>
       <div className="d-flex justify-content-between mb-4">
-        <div>{students.length} Books found!</div>
+        <div>{student?.length} students found!</div>
       </div>
       <hr />
       <Table striped bordered hover>
@@ -27,24 +26,19 @@ export const UserTable = () => {
             <th>#</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Username</th>
+            <th>Email</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {students.map((item, i) => (
+          {student?.map((item, i) => (
             <tr key={item._id}>
               <td>{i + 1}</td>
+              <td>{item.fName}</td>
+              <td>{item.lName}</td>
+              <td>{item.email}</td>
               <td>
-                <img src={item.thumbnail} alt="" width={"70px"} />
-              </td>
-              <td>
-                <h2>{item.title.slice(0, 30)} ...</h2>
-                <div>{item.author}</div>
-              </td>
-              <td>
-                <Link to={"/admin/book/edit/" + item._id}>
-                  <Button variant="warning">Edit</Button>
-                </Link>
+                <Button variant="danger">Delete</Button>
               </td>
             </tr>
           ))}

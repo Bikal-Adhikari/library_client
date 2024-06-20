@@ -16,12 +16,13 @@ export const getUserObj = () => async (dispatch) => {
 };
 export const getAllStudentAction = (isPrivate, role) => async (dispatch) => {
   const pending = fetchAllUserInfo(isPrivate, role);
-  toast.promise(pending, {
-    pending: "Please wait...",
-  });
+  // toast.promise(pending, {
+  //   pending: "Please wait...",
+  // });
 
   const { status, message, students } = await pending;
-  toast[status](message);
+
+  // toast[status](message);
 
   //update store
   dispatch(setStudent(students));
