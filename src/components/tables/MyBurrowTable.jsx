@@ -21,7 +21,7 @@ export const MyBurrowTable = ({ burrows = [] }) => {
       )}
 
       <div className="d-flex justify-content-between mb-4">
-        <div>30 Burrowed history found!</div>
+        <div>{burrows.length} Burrowed history found!</div>
       </div>
       <hr />
       <Table striped bordered hover>
