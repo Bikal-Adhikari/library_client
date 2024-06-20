@@ -1,10 +1,21 @@
 import { setUser } from "./userSlice";
-import { EditUserInfo, fetchUserInfo, loginUser } from "./userAxios";
+import {
+  EditUserInfo,
+  fetchAllUserInfo,
+  fetchUserInfo,
+  loginUser,
+} from "./userAxios";
 import { toast } from "react-toastify";
 import { renewAccessJWT } from "../../helpers/axiosHelper";
 
 export const getUserObj = () => async (dispatch) => {
   const { status, user } = await fetchUserInfo();
+
+  //update store
+  dispatch(setUser(user));
+};
+export const getAllStudentAction = (isPrivate, role) => async (dispatch) => {
+  const { status, students } = await fetchAllUserInfo(isPrivate, role);
 
   //update store
   dispatch(setUser(user));

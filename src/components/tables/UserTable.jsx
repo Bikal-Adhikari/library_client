@@ -1,18 +1,20 @@
 import { useEffect } from "react";
 import { Button, Table } from "react-bootstrap";
-import { getAllBooksAction } from "../../features/books/bookAction";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getAllStudentAction } from "../../features/users/userAction";
 
 const isPrivate = true;
 export const UserTable = () => {
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.userInfo);
+  const { role, ...rest } = user;
 
   const { students } = useSelector((state) => state.studentInfo);
 
   useEffect(() => {
-    dispatch(getAllBooksAction(isPrivate));
-  }, [dispatch]);
+    dispatch(getAllStudentAction(isPrivate, role));
+  }, [dispatch, role]);
   return (
     <div>
       <div className="d-flex justify-content-between mb-4">
@@ -38,13 +40,6 @@ export const UserTable = () => {
               <td>
                 <h2>{item.title.slice(0, 30)} ...</h2>
                 <div>{item.author}</div>
-                <div
-                  className={
-                    item.status === "active" ? "text-success" : "text-danger"
-                  }
-                >
-                  Status: {item.status}
-                </div>
               </td>
               <td>
                 <Link to={"/admin/book/edit/" + item._id}>
