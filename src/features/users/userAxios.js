@@ -32,7 +32,7 @@ export const fetchUserInfo = () => {
 export const fetchAllUserInfo = () => {
   const axiosObj = {
     method: "get",
-    url: userEP,
+    url: userEP + "/students",
     isPrivate: true,
     role: "admin",
   };
