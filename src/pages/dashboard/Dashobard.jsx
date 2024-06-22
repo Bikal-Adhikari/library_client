@@ -1,10 +1,11 @@
-import React from "react";
 import { UserLayout } from "../../components/layout/UserLayout";
+import StatisticsChart from "../../components/charts/StatisticsChart";
 
 const Dashobard = () => {
   return (
     <UserLayout pageTitle="Dashobard">
-      <h1>main area</h1>
+      <h1>Library Dashboard</h1>
+      <StatisticsChart />
     </UserLayout>
   );
 };
