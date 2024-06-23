@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Bar, Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -10,6 +10,8 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
+import { useEffect } from "react";
+import { fetchBurrowsAction } from "../../features/burrows/burrowAction";
 
 ChartJS.register(
   CategoryScale,
@@ -22,7 +24,14 @@ ChartJS.register(
 );
 
 const StatisticsChart = () => {
+  const dispatch = useDispatch();
   const { burrows } = useSelector((state) => state.burrowInfo);
+  const { user } = useSelector((state) => state.userInfo);
+  useEffect(() => {
+    if (user?._id) {
+      dispatch(fetchBurrowsAction());
+    }
+  }, [dispatch, user]);
 
   const processData = (data) => {
     const groupedData = data.reduce((acc, burrows) => {
