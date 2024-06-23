@@ -3,7 +3,7 @@ import StatisticsChart from "../../components/charts/StatisticsChart";
 
 const Dashobard = () => {
   return (
-    <UserLayout pageTitle="Dashobard">
+    <UserLayout pageTitle="Dashboard">
       <h1>Library Dashboard</h1>
       <StatisticsChart />
     </UserLayout>

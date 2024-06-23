@@ -1,7 +1,12 @@
 import { getAllBooksAction } from "../books/bookAction";
-import { fetchBurrows, postNewBurrow, returnBook } from "./burrowAxios";
+import {
+  fetchBurrows,
+  fetchUserBurrows,
+  postNewBurrow,
+  returnBook,
+} from "./burrowAxios";
 import { toast } from "react-toastify";
-import { setBurrows } from "./burrowSlice";
+import { setBurrows, setUserBurrows } from "./burrowSlice";
 
 export const addNewBurrowAction = (obj) => async (dispatch) => {
   const pending = postNewBurrow(obj);
@@ -28,6 +33,13 @@ export const fetchBurrowsAction = () => async (dispatch) => {
   }
 };
 
+export const fetchUserBurrowsAction = (userId) => async (dispatch) => {
+  const { status, burrows } = await fetchUserBurrows(userId);
+  if (status === "success") {
+    dispatch(setUserBurrows(burrows));
+  }
+};
+
 export const returnBurrowAction = (obj) => async (dispatch) => {
   const pending = returnBook(obj);
 
@@ -41,16 +53,5 @@ export const returnBurrowAction = (obj) => async (dispatch) => {
   if (status === "success") {
     dispatch(getAllBooksAction());
     dispatch(fetchBurrowsAction());
-  }
-};
-
-export const fetchAllBurrowsAction = () => async (dispatch) => {
-  try {
-    const { status, burrows } = await fetchAllBurrows();
-    if (status === "success") {
-      dispatch(setAllBurrows(burrows));
-    }
-  } catch (error) {
-    toast.error("Failed to fetch all borrowing data");
   }
 };

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Bar } from "react-chartjs-2";
+import { Bar, Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,6 +8,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  ArcElement,
 } from "chart.js";
 
 ChartJS.register(
@@ -16,14 +17,14 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ArcElement
 );
 
 const StatisticsChart = () => {
   const { burrows } = useSelector((state) => state.burrowInfo);
 
   const processData = (data) => {
-    // Process the borrowing data to the format required by Chart.js
     const groupedData = data.reduce((acc, burrows) => {
       const date = new Date(burrows.createdAt).toISOString().split("T")[0];
       if (!acc[date]) {
@@ -41,7 +42,7 @@ const StatisticsChart = () => {
 
   const { labels, counts } = processData(burrows);
 
-  const data = {
+  const barData = {
     labels,
     datasets: [
       {
@@ -66,8 +67,34 @@ const StatisticsChart = () => {
       },
     },
   };
+  const pieData = {
+    labels,
+    datasets: [
+      {
+        data: counts,
+        backgroundColor: labels.map(
+          (_, idx) =>
+            `rgba(${(idx * 30) % 255}, ${(idx * 60) % 255}, ${
+              (idx * 90) % 255
+            }, 0.6)`
+        ),
+        borderColor: labels.map(
+          (_, idx) =>
+            `rgba(${(idx * 30) % 255}, ${(idx * 60) % 255}, ${
+              (idx * 90) % 255
+            }, 1)`
+        ),
+        borderWidth: 1,
+      },
+    ],
+  };
 
-  return <Bar data={data} options={options} />;
+  return (
+    <div>
+      <Bar data={barData} options={options} />
+      <Pie data={pieData} options={options} />
+    </div>
+  );
 };
 
 export default StatisticsChart;

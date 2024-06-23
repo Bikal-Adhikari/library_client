@@ -27,6 +27,13 @@ export const fetchSingleBurrow = async (_id) => {
   };
   return apiProcesser(axiosObj);
 };
+export const fetchUserBurrows = async (userId) => {
+  const axiosObj = {
+    method: "get",
+    url: burrowEP + "/" + userId,
+  };
+  return apiProcesser(axiosObj);
+};
 
 export const returnBook = async (obj) => {
   const axiosObj = {
