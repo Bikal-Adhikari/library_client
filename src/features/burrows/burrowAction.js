@@ -43,3 +43,14 @@ export const returnBurrowAction = (obj) => async (dispatch) => {
     dispatch(fetchBurrowsAction());
   }
 };
+
+export const fetchAllBurrowsAction = () => async (dispatch) => {
+  try {
+    const { status, burrows } = await fetchAllBurrows();
+    if (status === "success") {
+      dispatch(setAllBurrows(burrows));
+    }
+  } catch (error) {
+    toast.error("Failed to fetch all borrowing data");
+  }
+};

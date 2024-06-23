@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -10,7 +9,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { fetchChartData } from "../../features/charts/chartAction";
 
 ChartJS.register(
   CategoryScale,
@@ -22,24 +20,33 @@ ChartJS.register(
 );
 
 const StatisticsChart = () => {
-  const dispatch = useDispatch();
-  const chartData = useSelector((state) => state.chartInfo.data);
-  const loading = useSelector((state) => state.chartInfo.loading);
-  const error = useSelector((state) => state.chartInfo.error);
+  const { burrows } = useSelector((state) => state.burrowInfo);
 
-  useEffect(() => {
-    dispatch(fetchChartData());
-  }, [dispatch]);
+  const processData = (data) => {
+    // Process the borrowing data to the format required by Chart.js
+    const groupedData = data.reduce((acc, burrows) => {
+      const date = new Date(burrows.createdAt).toISOString().split("T")[0];
+      if (!acc[date]) {
+        acc[date] = 0;
+      }
+      acc[date] += 1;
+      return acc;
+    }, {});
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+    const labels = Object.keys(groupedData);
+    const counts = Object.values(groupedData);
+
+    return { labels, counts };
+  };
+
+  const { labels, counts } = processData(burrows);
 
   const data = {
-    labels: chartData.map((item) => item.date),
+    labels,
     datasets: [
       {
         label: "Number of Borrows",
-        data: chartData.map((item) => item.count),
+        data: counts,
         backgroundColor: "rgba(75, 192, 192, 0.6)",
         borderColor: "rgba(75, 192, 192, 1)",
         borderWidth: 1,

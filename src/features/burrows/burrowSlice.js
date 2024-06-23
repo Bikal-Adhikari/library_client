@@ -2,15 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   burrows: [],
+  allBurrows: [],
   selectedBurrow: {},
 };
 
-const burrowlice = createSlice({
+const burrowSlice = createSlice({
   name: "burrows",
   initialState,
   reducers: {
     setBurrows: (state, { payload }) => {
       state.burrows = payload || [];
+    },
+    setAllBurrows: (state, { payload }) => {
+      state.allBurrows = payload || [];
     },
     setSelectedBurrow: (state, { payload }) => {
       state.selectedBurrow = payload;
@@ -18,7 +22,7 @@ const burrowlice = createSlice({
   },
 });
 
-const { reducer, actions } = burrowlice;
+const { reducer, actions } = burrowSlice;
 
-export const { setBurrows, setSelectedBurrow } = actions;
+export const { setBurrows, setSelectedBurrow, setAllBurrows } = actions;
 export default reducer;
