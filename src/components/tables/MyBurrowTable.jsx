@@ -58,7 +58,7 @@ export const MyBurrowTable = ({ burrows = [] }) => {
                     variant="success"
                     onClick={() =>
                       window.confirm(
-                        "Are you sure you want to reaturn this book?"
+                        "Are you sure you want to return this book?"
                       ) &&
                       dispatch(
                         returnBurrowAction({

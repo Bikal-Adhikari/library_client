@@ -30,3 +30,11 @@ export const fetchReviews = async (isPrivate) => {
   };
   return apiProcesser(axiosObj);
 };
+export const deleteReview = async ({ _id }) => {
+  const axiosObj = {
+    method: "delete",
+    url: `${reviewEP}/${_id}`,
+    isPrivate: true,
+  };
+  return apiProcesser(axiosObj);
+};

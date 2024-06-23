@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { Button, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+
 import { getAllStudentAction } from "../../features/users/userAction";
 
 const isPrivate = true;
@@ -27,7 +27,6 @@ export const UserTable = () => {
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
-            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -37,9 +36,6 @@ export const UserTable = () => {
               <td>{item.fName}</td>
               <td>{item.lName}</td>
               <td>{item.email}</td>
-              <td>
-                <Button variant="danger">Delete</Button>
-              </td>
             </tr>
           ))}
         </tbody>

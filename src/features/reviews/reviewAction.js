@@ -1,6 +1,13 @@
-import { fetchReviews, postNewReview, updateReview } from "./reviewAxios";
+import {
+  deleteReview,
+  fetchReviews,
+  postNewReview,
+  updateReview,
+} from "./reviewAxios";
 import { toast } from "react-toastify";
 import { setAllReview, setPubReviews, updateReveiwStatus } from "./reviewSlice";
+
+const isPrivate = true;
 
 export const addNewReviewAction = (obj) => async (dispatch) => {
   const pending = postNewReview(obj);
@@ -45,3 +52,13 @@ export const getReviews = (isPrivate) => async (dispatch) => {
       : dispatch(setPubReviews(reviews));
   }
 };
+
+export const deleteReviewAction =
+  ({ _id }) =>
+  async (dispatch) => {
+    const { status, message } = await deleteReview({ _id });
+    toast[status](message);
+    if (status === "success") {
+      dispatch(getReviews(isPrivate));
+    }
+  };

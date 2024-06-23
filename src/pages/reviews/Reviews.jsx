@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { UserLayout } from "../../components/layout/UserLayout";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  deleteReviewAction,
   getReviews,
   updateReviewAction,
 } from "../../features/reviews/reviewAction";
@@ -76,7 +77,21 @@ const Reviews = () => {
                   <div>{item.message}</div>
                 </td>
                 <td>
-                  <Button variant="danger">Delete</Button>
+                  <Button
+                    variant="danger"
+                    onClick={() =>
+                      window.confirm(
+                        "Are you sure you want to delete this review?"
+                      ) &&
+                      dispatch(
+                        deleteReviewAction({
+                          _id: item._id,
+                        })
+                      )
+                    }
+                  >
+                    Delete
+                  </Button>
                 </td>
               </tr>
             ))}
