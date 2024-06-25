@@ -1,6 +1,5 @@
 import axios from "axios";
-const userEP =
-  import.meta.env.VITE_APP_ROOT_SERVER + "/api/v1/users/renew-accesjwt";
+import { renewAccessJWT } from "../features/users/userAxios";
 
 const getAccessJWT = () => {
   return sessionStorage.getItem("accessJWT");
@@ -53,17 +52,4 @@ export const apiProcesser = async ({
       message,
     };
   }
-};
-
-export const renewAccessJWT = async () => {
-  const { accessJWT } = await apiProcesser({
-    method: "get",
-    url: userEP + "/renew-accesjwt",
-    isPrivate: true,
-    isRefreshJwt: true,
-  });
-
-  sessionStorage.setItem("accessJWT", accessJWT);
-
-  return accessJWT;
 };

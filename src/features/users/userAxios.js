@@ -45,3 +45,14 @@ export const EditUserInfo = async (obj) => {
   };
   return apiProcesser(axiosObj);
 };
+
+export const renewAccessJWT = async () => {
+  const axiosObj = {
+    method: "get",
+    url: userEP + "/renew-accesjwt",
+    isPrivate: true,
+    isRefreshJwt: true,
+  };
+
+  return apiProcesser(axiosObj);
+};
