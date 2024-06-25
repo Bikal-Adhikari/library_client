@@ -57,8 +57,11 @@ export const autoLogin = () => async (dispatch) => {
 
   //when accessJWT do not exist but refreshJWT exist
   if (refreshJWT) {
-    const token = await renewAccessJWT();
-    token && dispatch(getUserObj());
+    const response = await renewAccessJWT();
+    if (response.status === "success") {
+      sessionStorage.setItem("accessJWT", response.accessJWT);
+      dispatch(getUserObj());
+    }
   }
 };
 
