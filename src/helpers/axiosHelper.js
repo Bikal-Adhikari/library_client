@@ -16,13 +16,11 @@ export const apiProcesser = async ({
   isPrivate,
   isRefreshJwt,
 }) => {
-  const headers = {
-    Authorization: isPrivate
-      ? isRefreshJwt
-        ? getRefreshJWT()
-        : getAccessJWT()
-      : null,
-  };
+  const headers = isPrivate
+    ? {
+        Authorization: isRefreshJwt ? getRefreshJWT() : getAccessJWT(),
+      }
+    : null;
   try {
     const response = await axios({
       method,
@@ -40,7 +38,7 @@ export const apiProcesser = async ({
       const token = await renewAccessJWT();
       // re call back same api processer
       if (token) {
-        return apiProcesser({ method, url, data, isPrivate });
+        return apiProcesser({ method, url, data, isPrivate, isRefreshJwt });
       }
 
       //clear the tokens
