@@ -49,7 +49,7 @@ export const EditUserInfo = async (obj) => {
 export const renewAccessJWT = async () => {
   const axiosObj = {
     method: "get",
-    url: userEP + "/renew-accesjwt",
+    url: userEP + "/renew-accessjwt",
     isPrivate: true,
     isRefreshJwt: true,
   };
