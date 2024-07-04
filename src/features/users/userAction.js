@@ -36,9 +36,10 @@ export const userSignInAction = (obj) => async (dispatch) => {
   const { status, message, tokens } = await pending;
   toast[status](message);
   //store tokens in the sessions
-  sessionStorage.setItem("accessJWT", tokens.accessJWT);
-  localStorage.setItem("refreshJWT", tokens.refreshJWT);
-
+  if (tokens?.accessJWT && tokens?.refreshJWT) {
+    sessionStorage.setItem("accessJWT", tokens.accessJWT);
+    localStorage.setItem("refreshJWT", tokens.refreshJWT);
+  }
   if (status === "success") {
     dispatch(getUserObj());
   }
