@@ -12,43 +12,81 @@ Borrow Book: Logged-in users can borrow books from the library.
 
 ## Admin Features
 
-Add Book: Admins can add new books to the library catalog.
+Add Book: Admins can add new books to the library catalogue.
 Edit Book Details: Admins can edit details of existing books.
 Borrow Book Management: Admins can manage the borrowing of books.
 
-### Technologies Used
+## Demo
 
-Vite: A fast build tool and development server.
-React: A JavaScript library for building user interfaces.
-Axios: A promise-based HTTP client for making requests to the backend.
-Redux: A state management library for managing application state.
+Explore the system online [here](https://library-client-xi.vercel.app/).
+
+## Technologies Used
+
+- ReactJs
+- bootstrap CSS
+- NodeJs
+- Express
+- JWT (JSON Web Tokens)
+- Joi (JavaScript Object Validator)
+- MongoDB
+- Axios
+- Redux
+
 
 ### Installation
 
-To get started with the project, follow these steps:
+1. Clone the repo
 
-## Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/library-management-system.git
+   ```
 
-## bash
+2. Install NPM packages
 
-Copy code
-git clone https://github.com/yourusername/library-management-system.git
-cd library-management-system
-Install dependencies:
+   ```sh
+   npm install
+   ```
 
-## bash
+### Usage
 
-Copy code
-npm install
-Start the development server:
+1. Start the backend server (assuming NodeJs/Express backend is available)
 
-## bash
+   ```sh
+   npm start
+   ```
 
-Copy code
-npm run dev
-Build for production:
+2. Start the frontend development server
 
-## bash
+   ```sh
+   npm start
+   ```
 
-Copy code
-npm run build
+3. Open your browser and go to:
+
+   ```sh
+   http://localhost:3000
+   ```
+
+4. Explore the Library Management System!
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+
+
+
+
+
+
+
