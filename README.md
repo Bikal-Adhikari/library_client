@@ -64,7 +64,7 @@ Explore the system online [here](https://library-client-xi.vercel.app/).
 3. Open your browser and go to:
 
    ```sh
-   http://localhost:3000
+   http://localhost:5173
    ```
 
 4. Explore the Library Management System!
